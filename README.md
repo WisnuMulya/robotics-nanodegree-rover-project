@@ -14,10 +14,10 @@
 
  ## Simulator Setting
  The graphic setting when image data recorded is portrayed below:
- ![Graphic Setting](./images/graphic-settings.png)
+ ![Graphic Setting](./images/graphic-setting.png)
 
 ## Notebook Analysis
-![Color Thresholding](.images/color-thresholding.png)
+![Color Thresholding](./images/color-thresholding.png)
 ### Obstacle Identification
 The function `to_obstacle()` is added in the notebook and it receives binary
 image as the result of `navigable_threshold()`. The way `to_obstacle()` identify
