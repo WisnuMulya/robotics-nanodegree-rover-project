@@ -32,7 +32,7 @@ def to_obstacle(img):
 
 # Identify pixel of sample rock
 # Threshold of (100,100,0) <= RGB <= (255,255,80) does a good identifying the rocks
-def sample_rock_threshold(img, low_thresh=(100, 100, 0), high_thresh=(255, 255, 80)):
+def sample_rock_threshold(img, low_thresh=(170, 120, 0), high_thresh=(230, 180, 60)):
     # Create an array of zeros same xy size as img, but single channel
     rock = np.zeros_like(img[:,:,0])
 
