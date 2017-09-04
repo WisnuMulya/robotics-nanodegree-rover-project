@@ -151,8 +151,17 @@ def perception_step(Rover):
         Rover.pos[1], Rover.yaw, Rover.worldmap.shape[0], 10)
 
     # 7) Update Rover worldmap (to be displayed on right side of screen)
+        # Setting the rock coordinate to be the one closest to the rover
+    if rock_warped.any():
+        rock_dist, rock_ang = to_polar_coords(rock_xpix, rock_ypix)
+        rock_idx = np.argmin(rock_dist)
+        rock_x_closest = rock_x_world[rock_idx]
+        rock_y_closest = rock_y_world[rock_idx]
+        # Set the worldmap coordinate for rock
+        Rover.worldmap[rock_y_closest, rock_x_closest, 1] = 255
+
+
     Rover.worldmap[obstacle_y_world, obstacle_x_world, 0] += 1
-    Rover.worldmap[rock_y_world, rock_x_world, 1] += 1
     Rover.worldmap[navigable_y_world, navigable_x_world, 2] += 10
 
     # 8) Convert rover-centric pixel positions to polar coordinates
