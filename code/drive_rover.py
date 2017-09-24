@@ -109,7 +109,10 @@ def telemetry(sid, data):
         if np.isfinite(Rover.vel):
 
             # Execute the perception and decision steps to update the Rover's state
-            Rover = perception_step(Rover)
+                # Execute perception only when Rover's roll & pitch are close to 0
+            if ((Rover.pitch < 1.5) | (Rover.pitch > 358.5)) & \
+                ((Rover.roll < 1.5) | (Rover.roll > 358.5)):
+                Rover = perception_step(Rover)
             Rover = decision_step(Rover)
 
             # Create output images to send to server
