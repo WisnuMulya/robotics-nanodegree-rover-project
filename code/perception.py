@@ -133,6 +133,13 @@ def perception_step(Rover):
     rock_warped = perspect_transform(rock, source, destination)
 
     # 4) Update Rover.vision_image (this will be displayed on left side of screen)
+        # Render obstacles that are within a rectangular area in front of the rover
+    obstacle_warped[:110] = 0
+    obstacle_warped[:,:130] = 0
+    obstacle_warped[:,190:] = 0
+        # Render navigable terrain that are only within 80 meters in front of the rover
+    navigable_warped[:80] = 0
+
     Rover.vision_image[:,:,0] = obstacle_warped*255
     Rover.vision_image[:,:,1] = rock_warped*255
     Rover.vision_image[:,:,2] = navigable_warped*255
