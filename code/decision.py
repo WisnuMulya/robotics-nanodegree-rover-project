@@ -10,6 +10,9 @@ def decision_step(Rover):
     # improve on this decision tree to do a good job of navigating autonomously!
 
     # Example:
+    if Rover.near_sample:
+        Rover.mode = 'stop'
+
     # Check if we have vision data to make decisions with
     if Rover.nav_angles is not None:
         # Check for Rover.mode status
