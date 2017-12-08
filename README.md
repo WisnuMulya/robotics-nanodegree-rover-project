@@ -116,6 +116,7 @@ The `process_image()` function is filled with the following steps:
   vision_image[:,:,1] = rock_warped*255
   vision_image[:,:,2] = navigable_warped*255
   ```
+  
 5. Obtain world coordinates of the rover-vision by first obtaning the rover-centric coordinates. Here's the code:
   ```python
   # Obtain rover-centric pixel coordinates of navigable terrain/obstacles/rock samples
@@ -128,6 +129,7 @@ The `process_image()` function is filled with the following steps:
   obstacle_x_world, obstacle_y_world =  pix_to_world(obstacle_xpix, obstacle_ypix, data.xpos[data.count], data.ypos[data.count], data.yaw[data.count], data.worldmap.shape[0], 10)
   rock_x_world, rock_y_world =  pix_to_world(rock_xpix, rock_ypix, data.xpos[data.count], data.ypos[data.count], data.yaw[data.count], data.worldmap.shape[0], 10)
   ```
+
 6. Update the worldmap image, overlay it with the groundmap, and display it at
 the bottom center of the mosaic image
 
