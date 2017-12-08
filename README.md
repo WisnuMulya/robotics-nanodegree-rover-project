@@ -248,8 +248,16 @@ Here's a step-by-step walkthrough of the code and how it differs from the one in
 8. Converting rover-centric pixel positions to polar coordinates for steering.
 
 ### `decision_step()`
-A slight modification from the default code has been made to make the rover stop when it is near sample, but still in a `forward` mode. Here's the code:
+A slight modification from the default code has been made to make the rover stop when it is near sample. Here's the code:
 ```python
+# Implement conditionals to decide what to do given perception data
+# Here you're all set up with some basic functionality but you'll need to
+# improve on this decision tree to do a good job of navigating autonomously!
+
+# Example:
+if Rover.near_sample:
+    Rover.mode = 'stop'
+
 # Check if we have vision data to make decisions with
 if Rover.nav_angles is not None:
     # Check for Rover.mode status
